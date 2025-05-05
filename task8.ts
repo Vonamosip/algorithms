@@ -1,13 +1,18 @@
-const factory = (xValue, yValue, funcSumName): any => {
-    return  {
-        x: xValue,
-        y: yValue,
-        [funcSumName]: function () {
-            return this.x + this.y;
-        }
-    }
-}
-    const obj = factory(12, 23, 'myFunc');
+
+const obj: any = {
+    id: 0,
+    name: 'Obj-name',
+    toString: function(): string {
+        return this.name;
+    },
+    valueOf: function() : number {
+        return this.id;
+    },
     
-    console.log(obj.x, obj.y, obj.myFunc()); // 12, 23, 35
-    
+};
+
+console.log(`Name: ${obj}`); 		// Name: Obj-name
+console.log(+obj);            		// 0
+console.log(obj + 10);        		// 10
+
+
