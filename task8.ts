@@ -1,18 +1,12 @@
-
-const obj: any = {
-    id: 0,
-    name: 'Obj-name',
-    toString: function(): string {
-        return this.name;
-    },
-    valueOf: function() : number {
-        return this.id;
-    },
+const factory = (xValue, yValue, funcSumName): any => {
+    return  {
+        x: xValue,
+        y: yValue,
+        [funcSumName]: function () {
+            return this.x + this.y;
+        }
+    }
+}
+    const obj1 = factory(12, 23, 'myFunc');
     
-};
-
-console.log(`Name: ${obj}`); 		// Name: Obj-name
-console.log(+obj);            		// 0
-console.log(obj + 10);        		// 10
-
-
+    console.log(obj1.x, obj1.y, obj1.myFunc()); // 12, 23, 35
