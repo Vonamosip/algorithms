@@ -18,4 +18,4 @@ function divisors(n: number): number[] | string {
     }
     result.sort((a, b) => a - b);
     return result.length > 0 ? result : `${n} is prime`;
-}
+} 
