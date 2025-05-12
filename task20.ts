@@ -5,3 +5,17 @@
 // divisors(12); // should return [2,3,4,6]
 // divisors(25); // should return [5]
 // divisors(13); // should return "13 is prime"
+
+function divisors(n: number): number[] | string {
+    const result: number[] = [];
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            result.push(i);
+            if (i !== n / i) {
+                result.push(n / i);
+            }
+        }
+    }
+    result.sort((a, b) => a - b);
+    return result.length > 0 ? result : `${n} is prime`;
+}

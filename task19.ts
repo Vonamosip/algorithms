@@ -9,3 +9,10 @@
 
 //  persistence(4) === 0 		// because 4 is already a one-digit number
 
+function persistence(num: number ) : number {
+    let count = 0;
+    for (let i = num; i >= 10; i = i.toString().split('').reduce((acc, curr) => acc * +curr, 1)) {
+        count++;
+    }
+    return count;
+}
